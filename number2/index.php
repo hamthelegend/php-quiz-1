@@ -111,7 +111,7 @@
                     <input name="submit" value="Submit" type="submit" class="btn btn-primary">
                 </div>
             </form>
-            <div style="text-align: center">
+            <div style="text-align: center; margin-top: 10px">
                 <?php echo $product != null ? $product->display() : "" ?>
             </div>
         </div>

@@ -2,12 +2,12 @@
 
     require_once "Date.php";
 
-    $date = "";
+    $date = null;
 
     if (isset($_POST['submit'])) {
         if (isset($_POST['string'])) {
             $string = $_POST['string'];
-            $date = "Date in mm/dd/yyyy:<br>".Date::formatDate($string);
+            $date = Date::formatDate($string);
         }
     }
 
@@ -45,8 +45,16 @@
                     <input name="submit" value="Submit" type="submit" class="btn btn-primary">
                 </div>
             </form>
-            <div style="text-align: center">
-                <?php echo $date?>
+            <div style="text-align: center; margin-top: 10px">
+                <?php
+                    if ($date != null) {
+                        if ($date == "error") {
+                            echo "Ambiguous format.";
+                        } else {
+                            echo "Date in mm/dd/yyyy:<br>".$date;
+                        }
+                    }
+                ?>
             </div>
         </div>
     

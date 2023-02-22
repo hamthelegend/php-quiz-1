@@ -2,9 +2,9 @@
 
     class Date {
 
-        public static function formatDate(string $string): string {
+        public static function formatDate(string $string): string  {
             $time = strtotime($string);
-            return date("m/d/Y", $time);
+            return $time ? date("m/d/Y", $time) : "error";
         }
 
     }
