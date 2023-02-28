@@ -7,7 +7,7 @@
 
         public function __construct($productName, $price) {
             $this->productName = $productName;
-            $this->price = $price;
+            $this->price = round($price, 2);
         }
 
 
