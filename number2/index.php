@@ -63,7 +63,7 @@
                     <label
                             for="input-name"
                             class="form-label"
-                            id="input-length-label">Title</label>
+                            id="input-name-label">Title</label>
                     <input
                             id="input-name"
                             class="form-control"
@@ -75,7 +75,7 @@
                     <label
                             for="input-director-author"
                             class="form-label"
-                            id="input-length-label">Director/Author</label>
+                            id="input-director-author-label">Director/Author</label>
                     <input
                             id="input-director-author"
                             class="form-control"
@@ -87,7 +87,7 @@
                     <label
                             for="input-rating-genre"
                             class="form-label"
-                            id="input-length-label">Rating/Genre</label>
+                            id="input-rating-genre-label">Rating/Genre</label>
                     <input
                             id="input-rating-genre"
                             class="form-control"
@@ -99,7 +99,7 @@
                     <label
                             for="input-price"
                             class="form-label"
-                            id="input-length-label">Price</label>
+                            id="input-price-label">Price</label>
                     <input
                             id="input-price"
                             class="form-control"
@@ -115,6 +115,28 @@
                 <?php echo $product != null ? $product->display() : "" ?>
             </div>
         </div>
+
+        <script>
+            const selectedType = document.getElementById("input-type");
+            const inputDirectorAuthorLabel = document.getElementById("input-director-author-label");
+            const inputRatingGenreLabel = document.getElementById("input-rating-genre-label");
+
+            function updateLabels() {
+                if (selectedType.value == "book") {
+                    inputDirectorAuthorLabel.innerText = "Author"
+                    inputRatingGenreLabel.innerText = "Genre"
+                } else {
+                    inputDirectorAuthorLabel.innerText = "Director"
+                    inputRatingGenreLabel.innerText = "Rating"
+                }
+            }
+
+            updateLabels()
+
+            selectedType.onchange = function () {
+                updateLabels()
+            }
+        </script>
     
     </body>
 
